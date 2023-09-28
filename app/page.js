@@ -1,8 +1,8 @@
 import Image from 'next/image'
-import UserMainPage from './(client)/Auth/Annotation/page'
+import AnnotationPage from './(client)/Annotation/page'
 
 export default function Home() {
   return (
-    <UserMainPage/>
+    <AnnotationPage/>
   )
 }

@@ -13,11 +13,11 @@ export default function NavigationMenu() {
       'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
   }
   const navigation = [
-    { name: 'Annotation', href: '#', current: true },
-    { name: 'Validation', href: '#', current: false },
-    { name: 'Statistics', href: '#', current: false },
-    { name: 'Upload', href: '#', current: false },
-    { name: 'Download', href: '#', current: false },
+    { name: 'Annotation', href: '/Annotation', current: true },
+    { name: 'Validation', href: '/Validation', current: false },
+    { name: 'Statistics', href: '/Statistics', current: false },
+    { name: 'Upload', href: '/Upload', current: false },
+    { name: 'Download', href: '/Download', current: false },
   ]
   const userNavigation = [
     { name: 'Your Profile', href: '#' },
@@ -28,6 +28,7 @@ export default function NavigationMenu() {
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
   }
+  
   return (
     <>
       <Disclosure as="nav" className="bg-gray-800">

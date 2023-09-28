@@ -11,6 +11,7 @@ import { Button, TextField } from '@mui/material';
 // 2. 2nd prop is function to update states of data in the parent 
 
 export default function AnnotationInputRow(props) {
+
   const [inputData, setInputData] = React.useState(
     {
       startTime: "",
@@ -26,15 +27,19 @@ export default function AnnotationInputRow(props) {
 
   const handleChange = (event) => {
     setInputData({ ...inputData, [event.target.name]: event.target.value });
-    console.log(event.target)
+    // console.log(event.target)
   };
+
+  const handleSubmitButtonClick = () =>{
+    props.controlProps.submitButtonOnClick(props.rowIndex, inputData)
+  }
 
   return (
     <div className="flex flex-row justify-center pt-5">
       <FormControl>
         <TextField
           label="Start Time"
-          id="startTime"
+          id={`startTime${props.rowIndex}`}
           sx={{ m: 1, width: '10ch' }}
           variant="outlined"
           size="small"
@@ -46,7 +51,7 @@ export default function AnnotationInputRow(props) {
       <FormControl>
         <TextField
           label="End Time"
-          id="endTime"
+          id={`endTime${props.rowIndex}`}
           sx={{ m: 1, width: '10ch' }}
           variant="outlined"
           size="small"
@@ -59,7 +64,7 @@ export default function AnnotationInputRow(props) {
         <InputLabel id="region-select--label">Region</InputLabel>
         <Select
           labelId="region-select--label"
-          id="region-select"
+          id={`region-select${props.rowIndex}`}
           label="Region"
           size="small"
           value={inputData.region}
@@ -88,7 +93,7 @@ export default function AnnotationInputRow(props) {
       <FormControl sx={{ m: 1, minWidth: 120 }}>
         <TextField
           label="Region Text"
-          id="regionText"
+          id={`regionText${props.rowIndex}`}
           sx={{ m: 0, width: '20ch' }}
           variant="outlined"
           multiline
@@ -96,15 +101,17 @@ export default function AnnotationInputRow(props) {
           size="small"
           value={inputData.regionText}
           onChange={handleChange}
-          name="RegionText"
+          name="regionText"
         />
       </FormControl>
       <FormControl sx={{ m: 1, minWidth: 120 }}>
         <TextField
           label="Formal Text"
-          id="outlined-start-adornment"
+          id={`outlined-start-adornment${props.rowIndex}`}
           sx={{ m: 0, width: '20ch' }}
           variant="outlined"
+          multiline
+          maxRows={4}
           size="small"
           value={inputData.formalText}
           onChange={handleChange}
@@ -115,7 +122,7 @@ export default function AnnotationInputRow(props) {
         <InputLabel id="demo-simple-select--label">Emotion</InputLabel>
         <Select
           labelId="demo-simple-select--label"
-          id="demo-simple-select-"
+          id={`demo-simple-select-${props.rowIndex}`}
           label="Emotion"
           value={inputData.emotion}
           onChange={handleChange}
@@ -139,7 +146,7 @@ export default function AnnotationInputRow(props) {
         <InputLabel id="demo-simple-select--label">Age</InputLabel>
         <Select
           labelId="demo-simple-select--label"
-          id="demo-simple-select-"
+          id={`demo-simple-select-${props.rowIndex}`}
           value={inputData.ageGroup}
           onChange={handleChange}
           label="Age Group"
@@ -160,7 +167,7 @@ export default function AnnotationInputRow(props) {
         <InputLabel id="demo-simple-select--label">Gender</InputLabel>
         <Select
           labelId="demo-simple-select--label"
-          id="demo-simple-select-"
+          id={`demo-simple-select-${props.rowIndex}`}
           label="Gender"
           value={inputData.gender}
           onChange={handleChange}
@@ -179,11 +186,14 @@ export default function AnnotationInputRow(props) {
       <Button
         type="submit"
         variant="contained"
-        sx={{ mt: 1, mb:2}}
+        sx={{ mt: 1, mb:2, maxHeight:38}}
         className=' bg-blue-500'
         color = 'primary'
+        onClick={handleSubmitButtonClick}
       >
-        Update
+
+   {/* (event) => handleInputChange(index, event) */}
+        {props.controlProps.buttonName}
       </Button>
     </div>
   );
