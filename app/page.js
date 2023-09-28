@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import UserMainPage from './Home/page'
+import UserMainPage from './(client)/Auth/Annotation/page'
 
 export default function Home() {
   return (
