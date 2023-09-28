@@ -4,19 +4,23 @@ import MenuItem from '@mui/material/MenuItem';
 import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import {TextField } from '@mui/material';
+import { Button, TextField } from '@mui/material';
 
-export default function AnnotationInputRow() {
+
+// 1. 1st prop is a row state send form the parent
+// 2. 2nd prop is function to update states of data in the parent 
+
+export default function AnnotationInputRow(props) {
   const [inputData, setInputData] = React.useState(
     {
       startTime: "",
-      endTime:"",
-      region:"",
-      regionText:"",
-      formalText:"",
-      emotion:"",
-      ageGroup:"",
-      gender:""
+      endTime: "",
+      region: "",
+      regionText: "",
+      formalText: "",
+      emotion: "",
+      ageGroup: "",
+      gender: ""
     }
   )
 
@@ -36,7 +40,7 @@ export default function AnnotationInputRow() {
           size="small"
           value={inputData.startTime}
           onChange={handleChange}
-          name = "startTime"
+          name="startTime"
         />
       </FormControl>
       <FormControl>
@@ -48,7 +52,7 @@ export default function AnnotationInputRow() {
           size="small"
           value={inputData.endTime}
           onChange={handleChange}
-          name = "endTime"
+          name="endTime"
         />
       </FormControl>
       <FormControl sx={{ m: 1, minWidth: 120 }}>
@@ -60,7 +64,7 @@ export default function AnnotationInputRow() {
           size="small"
           value={inputData.region}
           onChange={handleChange}
-          name = "region"
+          name="region"
         >
           <MenuItem value="">
             <em>None</em>
@@ -92,7 +96,7 @@ export default function AnnotationInputRow() {
           size="small"
           value={inputData.regionText}
           onChange={handleChange}
-          name = "RegionText"
+          name="RegionText"
         />
       </FormControl>
       <FormControl sx={{ m: 1, minWidth: 120 }}>
@@ -104,7 +108,7 @@ export default function AnnotationInputRow() {
           size="small"
           value={inputData.formalText}
           onChange={handleChange}
-          name = "formalText"
+          name="formalText"
         />
       </FormControl>
       <FormControl sx={{ m: 1, minWidth: 120 }}>
@@ -116,7 +120,7 @@ export default function AnnotationInputRow() {
           value={inputData.emotion}
           onChange={handleChange}
           size="small"
-          name = "emotion"
+          name="emotion"
         >
           <MenuItem value="">
             <em>None</em>
@@ -140,7 +144,7 @@ export default function AnnotationInputRow() {
           onChange={handleChange}
           label="Age Group"
           size="small"
-          name = "ageGroup"
+          name="ageGroup"
         >
           <MenuItem value="">
             <em>None</em>
@@ -161,7 +165,7 @@ export default function AnnotationInputRow() {
           value={inputData.gender}
           onChange={handleChange}
           size="small"
-          name = "gender"
+          name="gender"
         >
           <MenuItem value="">
             <em>None</em>
@@ -172,6 +176,15 @@ export default function AnnotationInputRow() {
         </Select>
         <FormHelperText></FormHelperText>
       </FormControl>
+      <Button
+        type="submit"
+        variant="contained"
+        sx={{ mt: 1, mb:2}}
+        className=' bg-blue-500'
+        color = 'primary'
+      >
+        Update
+      </Button>
     </div>
   );
 }
