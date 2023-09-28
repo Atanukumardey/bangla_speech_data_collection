@@ -4,7 +4,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { TextField } from '@mui/material';
+import { Button, TextField } from '@mui/material';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 
@@ -18,13 +18,17 @@ export default function MetaDataBox() {
         }
     );
 
+    const handleSubmitButtonClick = () => {
+
+    }
+
     const handleChange = (event) => {
         setMetaData({ ...metaData, [event.target.name]: event.target.value });
-        console.log(event.target)
+        // console.log(event.target)
     };
 
     return (
-        <div className='p-5 flex flex-col justify-start rounded-3xl w-auto border-2 border-cyan-700'>
+        <div className='p-5 flex flex-col justify-start'>
             <div className='flex flex-row justify-center'>
                 <h2 className='font-bold'>Meta Data</h2>
             </div>
@@ -38,9 +42,10 @@ export default function MetaDataBox() {
                     InputLabelProps={{
                         shrink: true,
                     }}
-                    name = "femaleCount"
+                    name="femaleCount"
                     value={metaData.frmaleCount}
                     onChange={handleChange}
+                    size='small'
                 />
             </FormControl>
             <FormControl sx={{ m: 1, minWidth: 120 }}>
@@ -53,19 +58,21 @@ export default function MetaDataBox() {
                     InputLabelProps={{
                         shrink: true,
                     }}
-                    name = "maleCount"
+                    name="maleCount"
                     value={metaData.femaleCount}
                     onChange={handleChange}
+                    size='small'
                 />
             </FormControl>
-            <FormControl sx={{ m: 1, minWidth: 120 }}>
+            <FormControl sx={{ m: 1 }}>
                 <InputLabel id="demo-simple-select--label">Video Type</InputLabel>
                 <Select
                     labelId="demo-simple-select--label"
                     id="demo-simple-select-"
-                    name = "videoType"
+                    name="videoType"
                     value={metaData.videoType}
                     label="Video Type"
+                    size='small'
                     onChange={handleChange}
                 >
                     <MenuItem value="">
@@ -83,8 +90,20 @@ export default function MetaDataBox() {
                 </Select>
                 <FormHelperText></FormHelperText>
             </FormControl>
+            <FormControlLabel sx={{ m: 0, maxWidth: 120 }} required control={<Switch />} label="Completed" />
+            <div className='flex flex-row justify-center'>
+                <Button
+                    type="submit"
+                    variant="contained"
+                    sx={{ mt: 1, maxWidth: 90 }}
+                    className=' bg-blue-500'
+                    color='primary'
+                    onClick={handleSubmitButtonClick}
+                >
+                    Submit
+                </Button>
+            </div>
 
-            <FormControlLabel sx={{ m: 0, minWidth: 120 }} required control={<Switch />} label="Completed" />
         </div>
     );
 }

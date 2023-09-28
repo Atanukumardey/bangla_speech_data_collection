@@ -46,6 +46,7 @@ export default function AnnotationInputRow(props) {
           value={inputData.startTime}
           onChange={handleChange}
           name="startTime"
+          placeholder='min:sec'
         />
       </FormControl>
       <FormControl>
@@ -58,6 +59,7 @@ export default function AnnotationInputRow(props) {
           value={inputData.endTime}
           onChange={handleChange}
           name="endTime"
+          placeholder='min:sec'
         />
       </FormControl>
       <FormControl sx={{ m: 1, minWidth: 120 }}>
