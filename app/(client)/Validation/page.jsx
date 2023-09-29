@@ -48,8 +48,14 @@ export default function ValidationPage() {
     submitButtonOnClick: handleSubmitButtonClick
   }
   return (
-    <main className="min-h-full bg-gray-100">
+    <main className="min-h-full  bg-white">
       <NavigationMenu />
+      
+      <header className="bg-white shadow">
+        <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+          <h1 className="text-3xl font-bold tracking-tight text-gray-900">Validation</h1>
+        </div>
+      </header>
       <div className='p-5 flex flex-row justify-evenly rounded'>
         <FilterDataBox />
         {/* <VideoPlayerComponent sourceType = "youtube" videoID = "EyJjW6aaSKI"/> */}
@@ -58,7 +64,7 @@ export default function ValidationPage() {
       </div>
       <div>
       </div>
-      <div className="flex flex-col justify-items-center h-75 overflow-y-scrol">
+      <div className="flex flex-col justify-items-center h-quto overflow-y-scrol">
         <SimpleBar style={{ maxHeight: 300 }}>
           {
             rowData.map((data, index) => (

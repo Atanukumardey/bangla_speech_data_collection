@@ -35,7 +35,7 @@ export default function AnnotationInputRow(props) {
   }
 
   return (
-    <div className="flex flex-row justify-center pt-5">
+    <div className="flex flex-row justify-center pt-1">
       <FormControl>
         <TextField
           label="Start Time"

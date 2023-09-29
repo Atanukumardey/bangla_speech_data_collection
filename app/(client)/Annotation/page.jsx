@@ -51,6 +51,12 @@ export default function AnnotationPage() {
   return (
     <main className="min-h-screen bg-white">
       <NavigationMenu />
+      
+      <header className="bg-white shadow">
+        <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+          <h1 className="text-3xl font-bold tracking-tight text-gray-900">Annotation</h1>
+        </div>
+      </header>
       <div className='p-5 flex flex-row justify-evenly rounded'>
         <FilterDataBox />
         {/* <VideoPlayerComponent sourceType = "youtube" videoID = "EyJjW6aaSKI"/> */}

@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 body {
   /* color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -12,4 +13,24 @@ body {
     rgb(var(--background-start-rgb)); */
   scroll-behavior: smooth;
 }
+
+::-webkit-scrollbar {
+	width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
+
 
