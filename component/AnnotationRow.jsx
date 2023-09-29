@@ -30,7 +30,7 @@ export default function AnnotationInputRow(props) {
     // console.log(event.target)
   };
 
-  const handleSubmitButtonClick = () =>{
+  const handleSubmitButtonClick = () => {
     props.controlProps.submitButtonOnClick(props.rowIndex, inputData)
   }
 
@@ -188,13 +188,13 @@ export default function AnnotationInputRow(props) {
       <Button
         type="submit"
         variant="contained"
-        sx={{ mt: 1, mb:2, maxHeight:38}}
+        sx={{ mt: 1, mb: 2, maxHeight: 38 }}
         className=' bg-blue-500'
-        color = 'primary'
+        color='primary'
         onClick={handleSubmitButtonClick}
       >
 
-   {/* (event) => handleInputChange(index, event) */}
+        {/* (event) => handleInputChange(index, event) */}
         {props.controlProps.buttonName}
       </Button>
     </div>

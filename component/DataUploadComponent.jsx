@@ -16,11 +16,10 @@ export default function DataUploadComponent() {
             videoLink: "",
             duration: "",
             tentitiveRegion: "",
-            regionText: "",
             contact: "",
             sourceMedia: "",
             sourceName: "",
-            gender: ""
+            videoType: ""
         }
     )
 
@@ -83,24 +82,42 @@ export default function DataUploadComponent() {
                 <FormHelperText></FormHelperText>
             </FormControl>
             <FormControl sx={{ m: 1 }}>
-                <InputLabel id="source_name--label">Source Name</InputLabel>
-                <Select
-                    labelId="source_name--label"
-                    id="source_name"
+                <TextField
+                    label="Source Name"
+                    id="duration"
+                    // sx={{width: '25ch' }}
+                    variant="outlined"
+                    size="small"
                     value={inputData.sourceName}
                     onChange={handleChange}
-                    label="Source Name"
-                    size="small"
-                    name="sourceName"
+                    name="duration"
+                    placeholder='Channel, Page, Profile name OR N/A'
+                />
+            </FormControl>
+            <FormControl sx={{ m: 1 }}>
+                <InputLabel id="demo-simple-select--label">Video Type</InputLabel>
+                <Select
+                    labelId="demo-simple-select--label"
+                    id="demo-simple-select-"
+                    name="videoType"
+                    value={inputData.videoType}
+                    label="Video Type"
+                    size='small'
+                    onChange={handleChange}
                 >
                     <MenuItem value="">
                         <em>None</em>
                     </MenuItem>
-                    <MenuItem value={1}>Facebook</MenuItem>
-                    <MenuItem value={2}>YouTube</MenuItem>
-                    <MenuItem value={3}>Other Social Media</MenuItem>
-                    <MenuItem value={4}>Recorded</MenuItem>
-                    <MenuItem value={5}>Unknown</MenuItem>
+                    <MenuItem value={1}>Vlog</MenuItem>
+                    <MenuItem value={2}>Debate</MenuItem>
+                    <MenuItem value={3}>Drama</MenuItem>
+                    <MenuItem value={4}>Tutorial</MenuItem>
+                    <MenuItem value={5}>Discussion</MenuItem>
+                    <MenuItem value={6}>Comedy</MenuItem>
+                    <MenuItem value={7}>Interview</MenuItem>
+                    <MenuItem value={8}>News</MenuItem>
+                    <MenuItem value={9}>Crowd Talk</MenuItem>
+                    <MenuItem value={10}>Other</MenuItem>
                 </Select>
                 <FormHelperText></FormHelperText>
             </FormControl>

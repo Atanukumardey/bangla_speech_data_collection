@@ -26,7 +26,7 @@ export default function FilterDataBox() {
         console.log(event.target)
     };
     return (
-        <div className='p-5 flex flex-col justify-evenly'>
+        <div className='p-5 flex flex-col justify-evenly bg-slate-600'>
             <div className='flex flex-row justify-center'>
                 <h2 className='font-bold'>Chose Data</h2>
             </div>

@@ -9,6 +9,7 @@ import 'simplebar-react/dist/simplebar.min.css';
 import MetaDataBox from '@/component/MetaDataBox';
 import NavigationMenu from '@/component/NavigationMenu';
 import FilterDataBox from '@/component/FilterDataBox';
+import VideoPlayerComponent from '@/component/VideoPlayerComponent';
 
 
 export default function ValidationPage() {
@@ -51,23 +52,8 @@ export default function ValidationPage() {
       <NavigationMenu />
       <div className='p-5 flex flex-row justify-evenly rounded'>
         <FilterDataBox />
-        {/* <iframe
-                className='rounded'
-                width="50%"
-                height="320"
-                src="https://www.youtube.com/embed/EyJjW6aaSKI"
-                title="YouTube Video"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              // allowFullScreen
-              /> */}
-        <iframe
-          src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Ffacebook%2Fvideos%2F261697626257069%2F&width=500&show_text=false&height=280"
-          width={500}
-          height={280}
-          style={{ border: "none", overflow: "hidden" }}
-          allowFullScreen={true}
-          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-        />
+        {/* <VideoPlayerComponent sourceType = "youtube" videoID = "EyJjW6aaSKI"/> */}
+        <VideoPlayerComponent sourceType = "facebook" videoID = "261697626257069"/>
         <MetaDataBox />
       </div>
       <div>

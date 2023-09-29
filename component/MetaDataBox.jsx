@@ -28,7 +28,7 @@ export default function MetaDataBox() {
     };
 
     return (
-        <div className='p-5 flex flex-col justify-start'>
+        <div className='p-5 flex flex-col justify-evenly'>
             <div className='flex flex-row justify-center'>
                 <h2 className='font-bold'>Meta Data</h2>
             </div>
@@ -82,11 +82,12 @@ export default function MetaDataBox() {
                     <MenuItem value={2}>Debate</MenuItem>
                     <MenuItem value={3}>Drama</MenuItem>
                     <MenuItem value={4}>Tutorial</MenuItem>
-                    <MenuItem value={4}>Discussion</MenuItem>
-                    <MenuItem value={7}>Comedy</MenuItem>
-                    <MenuItem value={8}>Interview</MenuItem>
-                    <MenuItem value={5}>News</MenuItem>
-                    <MenuItem value={6}>Crowd Talk</MenuItem>
+                    <MenuItem value={5}>Discussion</MenuItem>
+                    <MenuItem value={6}>Comedy</MenuItem>
+                    <MenuItem value={7}>Interview</MenuItem>
+                    <MenuItem value={8}>News</MenuItem>
+                    <MenuItem value={9}>Crowd Talk</MenuItem>
+                    <MenuItem value={10}>Other</MenuItem>
                 </Select>
                 <FormHelperText></FormHelperText>
             </FormControl>
