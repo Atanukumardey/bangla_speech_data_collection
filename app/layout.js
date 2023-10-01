@@ -5,8 +5,9 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Bangla Speech Data Collection',
-  description: 'Made for colleting and annotating apeech data for bangla language',
+  description: 'Made for collecting and annotating speech dataset for bangla regional language',
 }
+
 
 export default function RootLayout({ children }) {
   return (

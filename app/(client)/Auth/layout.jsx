@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import Copyright from '@/component/pageItems/Copyright'
 
 const navigation = [
     { name: 'About', href: '#' },
@@ -10,7 +11,7 @@ const navigation = [
     { name: 'Explore', href: '#' },
 ]
 
-export default function LandingPage() {
+export default function AuthPageLayout({ children }) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const people = [
         {
@@ -44,7 +45,7 @@ export default function LandingPage() {
             <header className="absolute inset-x-0 top-0 z-50">
                 <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
                     <div className="flex lg:flex-1">
-                        <a href="#" className="-m-1.5 p-1.5">
+                        <a href="/" className="-m-1.5 p-1.5">
                             <span className="sr-only">Bangla Regional Speech </span>
                             <img
                                 className="h-14 w-auto"
@@ -138,53 +139,9 @@ export default function LandingPage() {
                         }}
                     />
                 </div>
-                <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-                    <div className="text-center">
-                        <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                            Data to enrich Bangla languauge
-                        </h1>
-                        <p className="mt-6 text-lg leading-8 text-gray-600">
-                            Welcome to our exciting project! Our mission is to create a comprehensive Bangla speech dataset that encompasses the diverse dialects spoken in Bangladesh and West Bengal, India.
-                            We invite you to join us in this endeavor and contribute your valuable time and speech data from various regions.
-                            By doing so, you will play a crucial role in enhancing the digital representation of our cherished language.
-                            Your participation is greatly appreciated and will help preserve the linguistic richness of Bangla for generations to come.
-                        </p>
-                        <div className="mt-10 flex items-center justify-center gap-x-6">
-                            <a
-                                href="#"
-                                className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                            >
-                                Get started
-                            </a>
-                            <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                                Learn more <span aria-hidden="true">→</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                {/* <div className="text-center">
-                    <div className="mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
-                        <div className="max-w-2xl">
-                            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Meet our Team</h2>
-                            <p className="mt-6 text-lg leading-8 text-gray-600">
-                                Description
-                            </p>
-                        </div>
-                        <ul role="list" className="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
-                            {people.map((person) => (
-                                <li key={person.name}>
-                                    <div className="flex items-center gap-x-6">
-                                        <img className="h-16 w-16 rounded-full" src={person.imageUrl} alt="" />
-                                        <div>
-                                            <h3 className="text-base font-semibold leading-7 tracking-tight text-gray-900">{person.name}</h3>
-                                            <p className="text-sm font-semibold leading-6 text-indigo-600">{person.role}</p>
-                                        </div>
-                                    </div>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </div> */}
+                {children}
+
+                <Copyright sx={{ mt: 8, mb: 4 }} />
                 <div
                     className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
                     aria-hidden="true"
@@ -197,7 +154,6 @@ export default function LandingPage() {
                         }}
                     />
                 </div>
-
             </div>
         </div>
     )

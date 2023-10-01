@@ -7,8 +7,7 @@ function VideoPlayerComponent(props) {
                 src={`https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Ffacebook%2Fvideos%2F${props.videoID}%2F&width=500&show_text=false&height=280`}
                 width={500}
                 height={280}
-                style={{ border: "none", overflow: "hidden" }
-                }
+                style={{ border: "none", borderRadius: 10, overflow: "hidden" }}
                 allowFullScreen={true}
                 allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
             />
@@ -18,16 +17,17 @@ function VideoPlayerComponent(props) {
         return (
             <iframe
                 className='rounded'
-                width="50%"
+                width={500}
                 height="320"
+                style={{ border: "none", borderRadius: 10, overflow: "hidden" }}
                 src={`https://www.youtube.com/embed/${props.videoID}`}
                 title="YouTube Video"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             // allowFullScreen
             />
         )
-    }else{
-        return(
+    } else {
+        return (
             <div>
                 Loading....
             </div>

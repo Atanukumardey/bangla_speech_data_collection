@@ -86,7 +86,7 @@ export default function AnnotationInputRow(props) {
           <MenuItem value={8}>Rangpur</MenuItem>
           <MenuItem value={9}>Rajshahi</MenuItem>
           <MenuItem value={10}>Sylhet</MenuItem>
-          <MenuItem value={11}>WestBengle</MenuItem>
+          <MenuItem value={11}>WestBangla</MenuItem>
           <MenuItem value={12}>Formal</MenuItem>
           <MenuItem value={13}>Unrecognized</MenuItem>
         </Select>

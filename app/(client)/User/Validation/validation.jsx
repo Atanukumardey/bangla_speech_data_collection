@@ -1,15 +1,14 @@
 "use client"
 import * as React from 'react';
-import AnnotationInputRow from '@/component/AnnotationRow';
+import AnnotationInputRow from '@/component/pageItems/AnnotationRow';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Add } from '@mui/icons-material';
 import SimpleBar from 'simplebar-react';
 import 'simplebar-react/dist/simplebar.min.css';
-import MetaDataBox from '@/component/MetaDataBox';
-import NavigationMenu from '@/component/NavigationMenu';
-import FilterDataBox from '@/component/FilterDataBox';
-import VideoPlayerComponent from '@/component/VideoPlayerComponent';
+import MetaDataBox from '@/component/pageItems/MetaDataBox';
+import FilterDataBox from '@/component/pageItems/FilterDataBox';
+import VideoPlayerComponent from '@/component/pageItems/VideoPlayerComponent';
 
 
 export default function ValidationPage() {
@@ -48,24 +47,17 @@ export default function ValidationPage() {
     submitButtonOnClick: handleSubmitButtonClick
   }
   return (
-    <main className="min-h-full  bg-white">
-      <NavigationMenu />
-      
-      <header className="bg-white shadow">
-        <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold tracking-tight text-gray-900">Validation</h1>
-        </div>
-      </header>
+    <>
       <div className='p-5 flex flex-row justify-evenly rounded'>
         <FilterDataBox />
         {/* <VideoPlayerComponent sourceType = "youtube" videoID = "EyJjW6aaSKI"/> */}
-        <VideoPlayerComponent sourceType = "facebook" videoID = "261697626257069"/>
+        <VideoPlayerComponent sourceType="facebook" videoID="261697626257069" />
         <MetaDataBox />
       </div>
       <div>
       </div>
       <div className="flex flex-col justify-items-center h-quto overflow-y-scrol">
-        <SimpleBar style={{ maxHeight: 300 }}>
+        <SimpleBar style={{ maxHeight: 250 }}>
           {
             rowData.map((data, index) => (
               <AnnotationInputRow key={index} rowIndex={index} controlProps={controlProps} />
@@ -87,6 +79,6 @@ export default function ValidationPage() {
           </IconButton>
         </div>
       </div>
-    </main>
+    </>
   )
 }

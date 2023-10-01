@@ -29,6 +29,17 @@ export default function NavigationMenu() {
     return classes.filter(Boolean).join(' ')
   }
 
+  const menuClickHandler = (name)=>{
+    console.log(name)
+    navigation.forEach(item => {
+      if (item.name === name) {
+        item.current = true;
+      } else {
+        item.current = false;
+      }
+    });
+  }
+
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -38,9 +49,10 @@ export default function NavigationMenu() {
               <div className="flex items-center">
                 <div className="flex-shrink-0">
                   <img
-                    className="h-8 w-8"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                    alt="Your Company"
+                    className="h-12 w-auto"
+                    // src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                    src="/images/Bangla_Icon.svg"
+                    alt=""
                   />
                 </div>
                 <div className=" md:block">
@@ -56,6 +68,7 @@ export default function NavigationMenu() {
                           'rounded-md px-3 py-2 text-sm font-medium'
                         )}
                         aria-current={item.current ? 'page' : undefined}
+                        // onClick={()=>menuClickHandler(item.name)}
                       >
                         {item.name}
                       </a>
@@ -180,6 +193,5 @@ export default function NavigationMenu() {
         </>
       )}
     </Disclosure>
-
   )
 }

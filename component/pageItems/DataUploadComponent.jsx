@@ -1,7 +1,6 @@
 "use client"
 import * as React from 'react';
 import 'simplebar-react/dist/simplebar.min.css';
-import NavigationMenu from '@/component/NavigationMenu';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormHelperText from '@mui/material/FormHelperText';
@@ -9,7 +8,58 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { Button, TextField } from '@mui/material';
 
-export default function DataUploadComponent() {
+function isURL(str) {
+    // Regular expression to match URLs (HTTP/HTTPS/FTP)
+    const urlRegex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
+    return urlRegex.test(str);
+}
+
+function isFacebookLink(link) {
+    // Check if the link contains "facebook.com" in the domain
+    return link.includes("facebook.com");
+}
+
+function isYouTubeLink(link) {
+    // Check if the link contains "youtube.com" in the domain
+    return link.includes("youtube.com");
+}
+
+
+function getVideoID(link) {
+    let data = {
+        videoID: "",
+        sourceMedia: ""
+    }
+
+    if (isFacebookLink(link)) {
+        try {
+            console.log(link)
+            let match = link.match(/[?&]v=([^&]+)/);  // https://www.facebook.com/watch?v=3499090363695917
+            if (!match) {
+                match = link.match(/\/videos\/(\d+)\//);  // https://www.facebook.com/tsportsbd/videos/187850464333635/
+            }
+            data.videoID = match[1];
+        } catch {
+        }
+        data.sourceMedia = 1; //"facebook"
+    }
+    else if (isYouTubeLink(link)) {
+        try {
+            data.videoID = link.match(/[?&]v=([^&]+)/)[1];
+        } catch {
+
+        }
+        data.sourceMedia = 2; //"youtube"
+    } else {
+        data.videoID = ""
+        data.sourceMedia = ""
+    }
+    return data
+}
+
+
+
+export default function DataUploadComponent(props) {
 
     const [inputData, setInputData] = React.useState(
         {
@@ -23,15 +73,32 @@ export default function DataUploadComponent() {
         }
     )
 
-    const handleChange = (event) => {
-        setInputData({ ...inputData, [event.target.name]: event.target.value });
-        // console.log(event.target)
-    };
-
     const handleSubmitButtonClick = () => {
         // props.controlProps.submitButtonOnClick(props.rowIndex, inputData)
     }
 
+    const handleChange = (event) => {
+        let tempInputData = { ...inputData, [event.target.name]: event.target.value }
+        inputData[event.target.name] = event.target.value;
+        let url = event.target.value;
+        if (event.target.name == "videoLink") {
+            if (url.length > 15 && isURL(url)) { // may be valid link
+                let data = getVideoID(url);
+                console.log(data)
+                if (data.sourceMedia == 1 || data.sourceMedia == 2) {
+                    // setInputData({ ...inputData, ["sourceMedia"]: 1, });
+                    inputData.sourceMedia = data.sourceMedia;
+                    let videoInfo = {
+                        sourceMedia: data.sourceMedia,
+                        videoID: data.videoID
+                    }
+                    tempInputData = { ...inputData, ["sourceMedia"]: data.sourceMedia }
+                    props.videoLinkCB(videoInfo)
+                }
+            }
+        }
+        setInputData(tempInputData);
+    };
     return (
         <div className="flex flex-col justify-evenly pt-5">
             <FormControl sx={{ m: 1 }}>
@@ -60,10 +127,10 @@ export default function DataUploadComponent() {
                 />
             </FormControl>
             <FormControl sx={{ m: 1 }}>
-                <InputLabel id="source_media--label">Source Media</InputLabel>
+                <InputLabel id="source_media" label="source_media">Source Media</InputLabel>
                 <Select
-                    labelId="source_media--label"
-                    id="source_media-"
+                    labelId="source_media_label"
+                    id="source_media"
                     label="Source Media"
                     value={inputData.sourceMedia}
                     onChange={handleChange}
@@ -84,13 +151,13 @@ export default function DataUploadComponent() {
             <FormControl sx={{ m: 1 }}>
                 <TextField
                     label="Source Name"
-                    id="duration"
+                    id="sourceName"
                     // sx={{width: '25ch' }}
                     variant="outlined"
                     size="small"
                     value={inputData.sourceName}
                     onChange={handleChange}
-                    name="duration"
+                    name="sourceName"
                     placeholder='Channel, Page, Profile name OR N/A'
                 />
             </FormControl>
@@ -145,7 +212,7 @@ export default function DataUploadComponent() {
                     <MenuItem value={8}>Rangpur</MenuItem>
                     <MenuItem value={9}>Rajshahi</MenuItem>
                     <MenuItem value={10}>Sylhet</MenuItem>
-                    <MenuItem value={11}>WestBengle</MenuItem>
+                    <MenuItem value={11}>WestBangla</MenuItem>
                     <MenuItem value={12}>Formal</MenuItem>
                     <MenuItem value={13}>Unrecognized</MenuItem>
                 </Select>
@@ -154,18 +221,21 @@ export default function DataUploadComponent() {
             <FormControl sx={{ m: 1 }}>
                 <TextField
                     label="Contact"
-                    id="outlined-start-adornment"
+                    id="contact"
                     // sx={{width: '25ch' }}
                     variant="outlined"
-                    multiline
-                    maxRows={4}
+                    // multiline
+                    // maxRows={4}
                     size="small"
                     value={inputData.contact}
                     onChange={handleChange}
                     name="contact"
+                    placeholder="Email or Phone number of the source (not yours)"
                 />
             </FormControl>
             <Button
+                id="submitBtn"
+                name="submitBtn"
                 type="submit"
                 variant="contained"
                 sx={{ m: 1 }}

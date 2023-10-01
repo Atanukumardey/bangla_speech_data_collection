@@ -4,8 +4,6 @@ import MenuItem from '@mui/material/MenuItem';
 import 'simplebar-react/dist/simplebar.min.css';
 import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Switch from '@mui/material/Switch';
 import InputLabel from '@mui/material/InputLabel';
 import { blueGrey, pink } from '@mui/material/colors';
 import { Button, Icon, IconButton, Typography } from '@mui/material';
