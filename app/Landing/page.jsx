@@ -138,7 +138,7 @@ export default function LandingPage() {
                         }}
                     />
                 </div>
-                <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+                <div className="mx-auto max-w-2xl py-24 sm:py-24 lg:py-32">
                     <div className="text-center">
                         <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
                             Data to enrich Bangla languauge
@@ -147,7 +147,7 @@ export default function LandingPage() {
                             Welcome to our exciting project! Our mission is to create a comprehensive Bangla speech dataset that encompasses the diverse dialects spoken in Bangladesh and West Bengal, India.
                             We invite you to join us in this endeavor and contribute your valuable time and speech data from various regions.
                             By doing so, you will play a crucial role in enhancing the digital representation of our cherished language.
-                            Your participation is greatly appreciated and will help preserve the linguistic richness of Bangla for generations to come.
+                            Your participation is greatly appreciated and will help to preserve the linguistic richness of Bangla for generations to come.
                         </p>
                         <div className="mt-10 flex items-center justify-center gap-x-6">
                             <a
