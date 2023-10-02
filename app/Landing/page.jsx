@@ -84,8 +84,9 @@ export default function LandingPage() {
                             <a href="#" className="-m-1.5 p-1.5">
                                 <span className="sr-only">Bangla Regional Speech </span>
                                 <img
-                                    className="h-8 w-auto"
-                                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                                    className="h-14 w-auto"
+                                    // src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                                    src="/images/Bangla_Icon.svg"
                                     alt=""
                                 />
                             </a>
