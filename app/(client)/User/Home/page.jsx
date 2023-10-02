@@ -10,6 +10,8 @@ import Copyright from '@/component/pageItems/Copyright';
 import AnnotationPage from '../Annotation/annotation';
 import ValidationPage from '../Validation/validation';
 import UploadPage from '../Upload/upload';
+import Statistics from '../Statistics/Statistics';
+import StatisticsPage from '../Statistics/Statistics';
 
 export default function Home() {
 
@@ -19,13 +21,7 @@ export default function Home() {
         imageUrl:
             'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
     }
-    // const navigation = [
-    //     { name: 'Annotation', href: '/User/Annotation', current: true },
-    //     { name: 'Validation', href: '/User/Validation', current: false },
-    //     { name: 'Statistics', href: '/User/Statistics', current: false },
-    //     { name: 'Upload', href: '/User/Upload', current: false },
-    //     { name: 'Download', href: '/User/Download', current: false },
-    // ]
+
     const [navigation, setNavigation] = React.useState([
         { name: 'Annotation', href: '#', current: true },
         { name: 'Validation', href: '#', current: false },
@@ -33,11 +29,12 @@ export default function Home() {
         { name: 'Upload', href: '#', current: false },
         { name: 'Download', href: '#', current: false },
     ])
-    const userNavigation = [
+
+    const [userNavigation, setUserNavigation] =  React.useState([
         { name: 'Your Profile', href: '#' },
         { name: 'Settings', href: '#' },
-        { name: 'Sign out', href: '#' },
-    ]
+        { name: 'Sign out', href: '/' },
+    ])
 
     const [currentPage, setCurrentPage] = React.useState(<AnnotationPage />)
     const [currentMenu, setCurrentMenu] = React.useState("Annotation")
@@ -63,6 +60,8 @@ export default function Home() {
             setCurrentPage(<ValidationPage />)
         } else if (name == "Upload") {
             setCurrentPage(<UploadPage />)
+        }else if (name == "Statistics"){
+            setCurrentPage(<StatisticsPage/>)
         }
     }
 

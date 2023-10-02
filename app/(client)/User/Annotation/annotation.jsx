@@ -48,7 +48,7 @@ export default function AnnotationPage() {
   }
   return (
     <>
-      <div className='p-5 flex flex-row justify-evenly rounded'>
+      <div className='p-5 flex flex-row justify-evenly'>
         <FilterDataBox />
         {/* <VideoPlayerComponent sourceType = "youtube" videoID = "EyJjW6aaSKI"/> */}
         <VideoPlayerComponent sourceType="facebook" videoID="261697626257069" />
