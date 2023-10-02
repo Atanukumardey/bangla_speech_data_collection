@@ -13,12 +13,11 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import BottomBackground from '@/component/pageItems/pageBackground/BottomBackground';
-import TopBackground from '@/component/pageItems/pageBackground/TopBackground';
-import Copyright from '@/component/pageItems/Copyright';
-
+import { useRouter } from 'next/navigation'
 
 export default function SignIn() {
+
+  const router = useRouter()
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -27,6 +26,7 @@ export default function SignIn() {
       email: data.get('email'),
       password: data.get('password'),
     });
+    router.push("/User/Home")
   };
 
   return (
@@ -79,6 +79,7 @@ export default function SignIn() {
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
             className=' bg-blue-500'
+            onClick={()=>handleSubmit}
           >
             Sign In
           </Button>
