@@ -1,6 +1,7 @@
 const { UUIDV4 } = require("sequelize");
+import { DataType } from "sequelize";
 
-module.exports = (sequelize, DataTypes) => {
+const SessionInfo = (sequelize) => {
     const SessionInfo = sequelize.define("SessionInfo", {
         session_id: {
             type: DataTypes.UUID,
@@ -19,3 +20,5 @@ module.exports = (sequelize, DataTypes) => {
     };
     return SessionInfo;
 };
+
+export default SessionInfo;

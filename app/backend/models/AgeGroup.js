@@ -1,6 +1,7 @@
 const { UUIDV4 } = require("sequelize");
+import { DataTypes } from "sequelize";
 
-const AgeGroup = (sequelize, DataTypes) => {
+const AgeGroup = (sequelize) => {
     const AgeGroup = sequelize.define("AgeGroup", {
         age_group_id: {
             type: DataTypes.UUID,
