@@ -14,6 +14,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { useRouter } from 'next/navigation'
+// import UserHome from '@/pages/User/Home/page';
 
 export default function SignIn() {
 
@@ -26,7 +27,7 @@ export default function SignIn() {
       email: data.get('email'),
       password: data.get('password'),
     });
-    router.push("/User/Home")
+    router.push("/pages/User/Home")
   };
 
   return (

@@ -21,9 +21,12 @@
     "eslint": "8.49.0",
     "eslint-config-next": "13.5.1",
     "next": "13.5.1",
+    "pg": "^8.11.3",
+    "pg-hstore": "^2.3.4",
     "postcss": "^8.4.30",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "sequelize": "^6.33.0",
     "simplebar-react": "^3.2.4",
     "tailwindcss": "^3.3.3"
   }

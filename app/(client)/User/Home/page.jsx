@@ -10,7 +10,6 @@ import Copyright from '@/component/pageItems/Copyright';
 import AnnotationPage from '../Annotation/annotation';
 import ValidationPage from '../Validation/validation';
 import UploadPage from '../Upload/upload';
-import Statistics from '../Statistics/Statistics';
 import StatisticsPage from '../Statistics/Statistics';
 
 export default function Home() {
