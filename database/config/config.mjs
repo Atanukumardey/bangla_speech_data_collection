@@ -32,5 +32,11 @@ export default {
         port: process.env.DB_PORT,
         logging: false,
         dialect: process.env.DB_DIALECT,
+        ssl:true,
+        dialectOptions: {
+            ssl: {
+               require: true
+            }
+        }
     },
 };
