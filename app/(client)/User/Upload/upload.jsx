@@ -1,8 +1,8 @@
 "use client"
 import * as React from 'react';
 import 'simplebar-react/dist/simplebar.min.css';
-import DataUploadComponent from '@/component/pageItems/DataUploadComponent';
-import VideoPlayerComponent from '@/component/pageItems/VideoPlayerComponent';
+import DataUploadComponent from '@/component/DataUploadComponent';
+import VideoPlayerComponent from '@/component/VideoPlayerComponent';
 
 export default function UploadPage() {
 

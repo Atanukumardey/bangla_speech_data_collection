@@ -14,9 +14,9 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Copyright from '@/component/pageItems/Copyright';
-import TopBackground from '@/component/pageItems/pageBackground/TopBackground';
-import BottomBackground from '@/component/pageItems/pageBackground/BottomBackground';
+import Copyright from '@/component/Copyright';
+import TopBackground from '@/component/pageBackground/TopBackground';
+import BottomBackground from '@/component/pageBackground/BottomBackground';
 
 
 export default function ForgotPassword() {

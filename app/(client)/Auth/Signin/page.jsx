@@ -27,7 +27,7 @@ export default function SignIn() {
       email: data.get('email'),
       password: data.get('password'),
     });
-    router.push("/pages/User/Home")
+    router.push("/User/Home")
   };
 
   return (

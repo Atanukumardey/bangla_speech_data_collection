@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import Copyright from '@/component/pageItems/Copyright'
+import Copyright from '@/component/Copyright'
 
 const navigation = [
     { name: 'About', href: '#' },
