@@ -1,8 +1,16 @@
-import { connectDB } from "@/app/backend/database/dbConfiguration";
-// import { NextResponse } from "next/server";
+import { db } from "@/database/models";
 
 export default async function handler(req, res) {
-    let res_data = await connectDB();
-    res.status(200).json({ data: {res_data} })
+  try {
+    const emotion_name = "Anger";
+    const newEmotion = await db.Emotions.create({
+        emotion_name:emotion_name
+    });
+    res.status(200).json({ newEmotion });
+  } catch (e) {
+    res.status(400).json({
+      error_code: 'cr_emo',
+      message: e.message,
+    });
+  }
 }
-
