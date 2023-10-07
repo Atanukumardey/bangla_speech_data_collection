@@ -1,14 +1,14 @@
 "use client"
 import * as React from 'react';
-import AnnotationInputRow from '@/component/pageItems/AnnotationRow';
+import AnnotationInputRow from '@/component/AnnotationRow';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Add } from '@mui/icons-material';
 import SimpleBar from 'simplebar-react';
 import 'simplebar-react/dist/simplebar.min.css';
-import MetaDataBox from '@/component/pageItems/MetaDataBox';
-import FilterDataBox from '@/component/pageItems/FilterDataBox';
-import VideoPlayerComponent from '@/component/pageItems/VideoPlayerComponent';
+import MetaDataBox from '@/component/MetaDataBox';
+import FilterDataBox from '@/component/FilterDataBox';
+import VideoPlayerComponent from '@/component/VideoPlayerComponent';
 
 
 export default function AnnotationPage() {
