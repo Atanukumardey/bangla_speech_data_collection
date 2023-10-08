@@ -9,7 +9,10 @@ if (process.env.NODE_ENV === 'production') {
   sequelize = new Sequelize(config.staging);
 } else if (process.env.NODE_ENV === 'test') {
   sequelize = new Sequelize(config.test);
-} else {
+} else if(process.env.NODE_ENV === 'awsdbproduction'){
+  sequelize = new Sequelize(config.awsdbproduction);
+}
+else {
   sequelize = new Sequelize(config.development);
 }
 

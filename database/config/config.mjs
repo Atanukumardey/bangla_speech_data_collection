@@ -32,11 +32,25 @@ export default {
         port: process.env.DB_PORT,
         logging: false,
         dialect: process.env.DB_DIALECT,
-        ssl:true,
+        ssl: true,
         dialectOptions: {
             ssl: {
-               require: true
+                require: true
             }
         }
     },
+    awsdbproduction: {
+        username: process.env.AWS_DB_NAME,
+        password: process.env.AWS_DB_PASSWORD,
+        database: process.env.AWS_DB_NAME,
+        host: process.env.AWS_DB_HOST,
+        port: process.env.DB_PORT,
+        dialect: process.env.DB_DIALECT,
+        dialectOptions: {
+            ssl: {
+                require: true,
+                rejectUnauthorized: false
+            }
+         },
+    }
 };
