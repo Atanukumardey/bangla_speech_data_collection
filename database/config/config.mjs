@@ -24,23 +24,26 @@ export default {
         logging: false,
         dialect: process.env.DB_DIALECT,
     },
+    // VERCEL DB
+    // production: {
+    //     username: process.env.DB_USER,
+    //     password: process.env.DB_PASSWORD,
+    //     database: process.env.DB_DATABASE,
+    //     host: process.env.DB_HOST,
+    //     port: process.env.DB_PORT,
+    //     logging: false,
+    //     dialect: process.env.DB_DIALECT,
+    //     ssl: true,
+    //     dialectOptions: {
+    //         ssl: {
+    //             require: true
+    //         }
+    //     }
+    // },
+
+    //AWS DB
     production: {
-        username: process.env.DB_USER,
-        password: process.env.DB_PASSWORD,
-        database: process.env.DB_DATABASE,
-        host: process.env.DB_HOST,
-        port: process.env.DB_PORT,
-        logging: false,
-        dialect: process.env.DB_DIALECT,
-        ssl: true,
-        dialectOptions: {
-            ssl: {
-                require: true
-            }
-        }
-    },
-    awsdbproduction: {
-        username: process.env.AWS_DB_NAME,
+        username: process.env.AWS_DB_USER,
         password: process.env.AWS_DB_PASSWORD,
         database: process.env.AWS_DB_NAME,
         host: process.env.AWS_DB_HOST,
@@ -51,6 +54,6 @@ export default {
                 require: true,
                 rejectUnauthorized: false
             }
-         },
+        },
     }
 };
