@@ -1,6 +1,7 @@
-import * as pg from 'pg'
+// import * as pg from 'pg'
+import pg from 'pg'
 
-export default {
+export default  {
     development: {
         database: process.env.DEV_DB_NAME,
         username: process.env.DEV_DB_USERNAME,

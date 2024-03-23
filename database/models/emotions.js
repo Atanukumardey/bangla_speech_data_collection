@@ -10,7 +10,11 @@ const initEmotions =  (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.Emotions.hasMany(models.ProcessedData);
+      models.Emotions.hasMany(models.ProcessedData,{
+        foreignKey: 'emotion_id',
+        as: 'emotion',
+        onDelete: 'CASCADE',
+      });
     }
   }
   Emotions.init({

@@ -7,7 +7,7 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.BIGINT
+        type: Sequelize.INTEGER
       },
       num_of_speaker: {
         type: Sequelize.INTEGER
@@ -18,6 +18,26 @@ module.exports = {
       num_of_female_speaker: {
         type: Sequelize.INTEGER
       },
+      provider_id: {
+        allowNull: true,
+        type: Sequelize.BIGINT,
+        references: {
+          model: "Users",
+          key: "id"
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
+      },
+      data_file_id: {
+        allowNull: true,
+        type: Sequelize.BIGINT,
+        references: {
+          model: "DataFiles",
+          key: "id"
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -25,30 +45,10 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      },
-      provider_id:{
-        allowNull:true,
-        type:Sequelize.BIGINT,
-        references:{
-          model:"Users",
-          key:"id"
-        },
-        onUpdate: "CASCADE",
-        onDelete: "CASCADE",
-      },
-      data_file_id:{
-        allowNull:true,
-        type:Sequelize.BIGINT,
-        references:{
-          model:"DataFiles",
-          key:"id"
-        },
-        onUpdate: "CASCADE",
-        onDelete: "CASCADE",
       }
     });
   },
-  async down(queryInterface) {
+  async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('MetaData');
   }
 };

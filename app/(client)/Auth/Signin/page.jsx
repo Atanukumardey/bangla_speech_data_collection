@@ -14,20 +14,42 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { useRouter } from 'next/navigation'
+import { useSearchParams } from 'next/dist/client/components/navigation';
+import { signIn } from "next-auth/react";
 // import UserHome from '@/pages/User/Home/page';
 
 export default function SignIn() {
 
   const router = useRouter()
 
-  const handleSubmit = (event) => {
+  const searchParams = useSearchParams();
+  const callbackUrl = searchParams.get("callbackUrl") || "/";
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-    router.push("/User/Home")
+    // console.log({
+    //   email: data.get('email'),
+    //   password: data.get('password'),
+    // });
+    try {
+      const res = await signIn("credentials", {
+        redirect: false,
+        email: data.get('email'),
+        password: data.get('password'),
+        callbackUrl,
+      });
+      if (!res?.error) {
+        console.log("Response:", res);
+        router.push('/User/Home');
+      } else {
+        console.log("invalid email or password");
+      }
+
+    } catch (error) {
+      console.log(error)
+    }
+
   };
 
   return (
@@ -80,7 +102,7 @@ export default function SignIn() {
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
             className=' bg-blue-500'
-            onClick={()=>handleSubmit}
+            onClick={() => handleSubmit}
           >
             Sign In
           </Button>

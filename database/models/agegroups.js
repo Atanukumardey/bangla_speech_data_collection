@@ -10,12 +10,16 @@ const initAgeGroups = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.AgeGroups.hasMany(models.ProcessedData)
+      models.AgeGroups.hasMany(models.ProcessedData,{
+        foreignKey: 'age_group_id',
+        as: 'ageGroup',
+        onDelete: 'CASCADE',
+      })
     }
   }
   AgeGroups.init({
-    group_name: DataTypes.STRING,
-    group_range: DataTypes.STRING
+    groupName: DataTypes.STRING,
+    groupRange: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'AgeGroups',

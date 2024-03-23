@@ -14,23 +14,32 @@ const initDataFiles = (sequelize, DataTypes) => {
         foreignKey: 'initial_region_id',
         as: "InitialRegionRef",
         type: DataTypes.BIGINT,
+        onDelete: 'CASCADE',
       });
       models.DataFiles.belongsTo(models.VideoTypes, {
         foreignKey: 'video_type_id',
         as: "VideoTypeRef",
         type: DataTypes.BIGINT,
+        onDelete: 'CASCADE',
       });
       models.DataFiles.belongsTo(models.DataQuality, {
         foreignKey: 'data_quality_id',
         as: "DataQualityRef",
         type: DataTypes.BIGINT,
+        onDelete: 'CASCADE',
       });
       models.DataFiles.belongsTo(models.Users, {
-        foreignKey: 'author_id',
+        foreignKey: 'uploader_id',
         as: "AuthorRef",
         type: DataTypes.BIGINT,
+        onDelete: 'CASCADE',
       });
-      models.DataFiles.hasMany(models.MetaData);
+      models.DataFiles.hasMany(models.MetaData,{
+        foreignKey: 'data_file_id',
+        as: "MetaDataRef",
+        type: DataTypes.BIGINT,
+        onDelete: 'CASCADE',
+      });
     }
   }
   DataFiles.init({
@@ -43,7 +52,7 @@ const initDataFiles = (sequelize, DataTypes) => {
     initial_region_id: DataTypes.BIGINT,
     video_type_id: DataTypes.BIGINT,
     data_quality_id: DataTypes.BIGINT,
-    author_id: DataTypes.BIGINT
+    uploader_id: DataTypes.BIGINT
   }, {
     sequelize,
     modelName: 'DataFiles',

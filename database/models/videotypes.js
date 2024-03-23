@@ -10,7 +10,11 @@ const initVideoTypes = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.VideoTypes.hasMany(models.DataFiles);
+      models.VideoTypes.hasMany(models.DataFiles,{
+        foreignKey: 'video_type_id',
+        as: 'vDataFilesRef',
+        onDelete: 'CASCADE',
+      });
     }
   }
   VideoTypes.init({

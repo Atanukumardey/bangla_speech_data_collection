@@ -17,7 +17,7 @@ const initMetaData = (sequelize, DataTypes) => {
       });
       models.MetaData.belongsTo(models.DataFiles, {
         foreignKey: 'data_file_id',
-        as: "DataFileRef",
+        as: "mDataFileRef",
         type: DataTypes.BIGINT,
       });
     }

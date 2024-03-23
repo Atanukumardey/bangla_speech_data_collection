@@ -1,7 +1,7 @@
 import { Model, DataTypes } from 'sequelize';
 import DBConnection from '../connection';
 
-const initAgeGroups =  (sequelize, DataTypes) => {
+const initSessionInfo =  (sequelize, DataTypes) => {
   class SessionInfo extends Model {
     /**
      * Helper method for defining associations.
@@ -12,7 +12,7 @@ const initAgeGroups =  (sequelize, DataTypes) => {
       // define association here
       models.SessionInfo.belongsTo(models.Users, {
         foreignKey: 'user_id',
-        as: "UserRef",
+        as: "sessionUser",
         type: DataTypes.BIGINT,
       });
     }
@@ -28,4 +28,4 @@ const initAgeGroups =  (sequelize, DataTypes) => {
   return SessionInfo;
 };
 
-export default initAgeGroups(DBConnection, DataTypes);
+export default initSessionInfo(DBConnection, DataTypes);

@@ -2,15 +2,28 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Emotions', {
+    await queryInterface.createTable('SessoinInfo', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.BIGINT
+        type: Sequelize.INTEGER
       },
-      emotion_name: {
+      os_type: {
         type: Sequelize.STRING
+      },
+      browser_type: {
+        type: Sequelize.STRING
+      },
+      user_id:{
+        allowNull:false,
+        type:Sequelize.BIGINT,
+        references:{
+          model: "Users",
+          key:"id",
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
       createdAt: {
         allowNull: false,
@@ -19,10 +32,10 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      }
+      },
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Emotions');
+    await queryInterface.dropTable('SessoinInfo');
   }
 };

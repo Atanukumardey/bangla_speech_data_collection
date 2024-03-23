@@ -10,9 +10,21 @@ const initRegions =  (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-        models.Regions.hasMany(models.ProcessedData);
-        models.Regions.hasMany(models.DataFiles);
-        models.Regions.hasMany(models.Users);
+        models.Regions.hasMany(models.ProcessedData,{
+            foreignKey: 'region_id',
+            as: 'processedData',
+            onDelete: 'CASCADE',
+        });
+        models.Regions.hasMany(models.DataFiles,{
+            foreignKey: 'initial_region_id',
+            as: 'rDataFilesRef',
+            onDelete: 'CASCADE',
+        });
+        models.Regions.hasMany(models.Users, {
+            foreignKey: 'region_id',
+            as: 'users',
+            onDelete: 'CASCADE',
+        });
     }
   }
   Regions.init({

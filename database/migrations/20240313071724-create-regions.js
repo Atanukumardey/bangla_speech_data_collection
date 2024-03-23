@@ -2,14 +2,14 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('VideoTypes', {
+    await queryInterface.createTable('Regions', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.BIGINT
+        type: Sequelize.INTEGER
       },
-      video_type: {
+      region_name: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -22,7 +22,7 @@ module.exports = {
       }
     });
   },
-  async down(queryInterface) {
-    await queryInterface.dropTable('VideoTypes');
+  async down(queryInterface, Sequelize) {
+    await queryInterface.dropTable('Regions');
   }
 };

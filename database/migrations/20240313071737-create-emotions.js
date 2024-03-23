@@ -2,14 +2,14 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('DataQuality', {
+    await queryInterface.createTable('Emotions', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.BIGINT
+        type: Sequelize.INTEGER
       },
-      dataquality: {
+      emotion_name: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -22,7 +22,7 @@ module.exports = {
       }
     });
   },
-  async down(queryInterface) {
-    await queryInterface.dropTable('DataQuality');
+  async down(queryInterface, Sequelize) {
+    await queryInterface.dropTable('Emotions');
   }
 };

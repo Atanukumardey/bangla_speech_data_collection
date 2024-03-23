@@ -10,11 +10,31 @@ const initUsers = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.Users.hasMany(models.MetaData);
-      models.Users.hasMany(models.SessionInfo);
-      models.Users.hasMany(models.ProcessedData);
-      models.Users.hasMany(models.ProcessedData);
-      models.Users.hasMany(models.DataFiles);
+      models.Users.hasMany(models.MetaData,{
+        foreignKey: 'provider_id',
+        as: 'MetaData',
+        onDelete: 'CASCADE',
+      });
+      models.Users.hasMany(models.SessionInfo,{
+        foreignKey: 'user_id',
+        as: 'SessionInfo',
+        onDelete: 'CASCADE',
+      });
+      models.Users.hasMany(models.ProcessedData,{
+        foreignKey: 'annotator_id',
+        as: 'aProcessedDataRef',
+        onDelete: 'CASCADE',
+      });
+      models.Users.hasMany(models.ProcessedData,{
+        foreignKey: 'verifier_id',
+        as: 'vProcessedDataRef',
+        onDelete: 'CASCADE',
+      });
+      models.Users.hasMany(models.DataFiles,{
+        foreignKey: 'uploader_id',
+        as: 'uDataFilesRef',
+        onDelete: 'CASCADE',
+      });
       models.Users.belongsTo(models.Regions, {
         foreignKey: 'region_id',
         as:"RegionRef",

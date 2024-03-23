@@ -1,17 +1,18 @@
+'use strict';
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('SessionInfos', {
+    await queryInterface.createTable('AgeGroups', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.BIGINT
+        type: Sequelize.INTEGER
       },
-      os_type: {
+      group_name: {
         type: Sequelize.STRING
       },
-      browser_type: {
+      group_range: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -21,20 +22,10 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      },
-      user_id:{
-        allowNull:false,
-        type:Sequelize.BIGINT,
-        references:{
-          model: "Users",
-          key:"id",
-        },
-        onUpdate: "CASCADE",
-        onDelete: "CASCADE",
-      },
+      }
     });
   },
-  async down(queryInterface) {
-    await queryInterface.dropTable('SessionInfos');
+  async down(queryInterface, Sequelize) {
+    await queryInterface.dropTable('AgeGroups');
   }
 };

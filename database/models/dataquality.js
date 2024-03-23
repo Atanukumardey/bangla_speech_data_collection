@@ -10,12 +10,20 @@ const initDataQuality = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.DataQuality.hasMany(models.ProcessedData);
-      models.DataQuality.hasMany(models.DataFiles);
+      models.DataQuality.hasMany(models.ProcessedData,{
+        foreignKey: 'data_quality_id',
+        as: 'ProcessedData',
+        onDelete: 'CASCADE',
+      });
+      models.DataQuality.hasMany(models.DataFiles,{
+        foreignKey: 'data_quality_id',
+        as: 'dqDataFiles',
+        onDelete: 'CASCADE',
+      });
     }
   }
   DataQuality.init({
-    dataquality: DataTypes.STRING
+    data_quality: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'DataQuality',
